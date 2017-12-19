@@ -1,11 +1,10 @@
-## Câu 11. Lấy tổng lượt view của từng category thông qua blog và news
+## Câu 12. Lấy blog được tạo bởi user mà user này không có bất kỳ comment ở blog
 ```
-  SELECT category_id, SUM(view) AS total_views FROM 
-  ( 
-    SELECT category_id, view FROM blog 
-    UNION ALL 
-    SELECT category_id, view FROM news
-  ) AS total
-  GROUP BY category_id;
+  SELECT * FROM blog 
+  WHERE user_id NOT IN 
+    (
+      SELECT user_id FROM comment 
+      WHERE target_table = 'blog'
+    );
 ```
   
