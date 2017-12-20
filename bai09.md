@@ -2,9 +2,9 @@
 ```
   SELECT AVG(cmt_per_blog) avg FROM 
   (
-    SELECT target_id, COUNT(*) cmt_per_blog FROM comment 
-    WHERE target_table = 'blog' 
-    GROUP BY target_id
-  ) blog_cmt;
+    SELECT COUNT(comment.id) cmt_per_blog FROM blog 
+    LEFT JOIN comment ON target_id = blog.id AND target_table = 'blog' 
+    GROUP BY blog.id 
+  ) blogcomment;
 ```
   
