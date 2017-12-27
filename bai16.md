@@ -1,5 +1,4 @@
 ## Câu 16. Xoá comment mà nội dung comment có từ "fuck" hoặc "phức" 
 ```
-  DELETE FROM comment WHERE comment LIKE '%fuck%' OR comment LIKE CONCAT('%', CONVERT('phức', BINARY), '%');
+  DELETE FROM comment WHERE comment LIKE '%fuck%' OR comment LIKE BINARY '%phức%';
 ```
-  
