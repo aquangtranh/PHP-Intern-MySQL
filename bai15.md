@@ -5,7 +5,6 @@
     (
       SELECT user_id FROM comment 
       GROUP BY user_id HAVING COUNT(*) > 20
-    ) 
-    AND rank < 2;
+    );
 ```
   
